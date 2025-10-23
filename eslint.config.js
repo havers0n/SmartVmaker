@@ -29,6 +29,7 @@ export default [
         FileReader: 'readonly',
         location: 'readonly',
         URL: 'readonly',
+        API_BASE: 'readonly',
         showLoading: 'readonly',
         hideLoading: 'readonly',
         showImageResult: 'readonly',
