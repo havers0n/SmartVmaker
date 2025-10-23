@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Output files
+out/
+archive/
+*.mp4
+*.mov
+*.mp3
+*.wav
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# External documentation (MiniMax API reference)
+docs.me/

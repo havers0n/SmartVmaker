@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(powershell -Command \"Get-Process -Name node | Stop-Process -Force\")",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(node test-image-api.js:*)",
+      "Bash(npm install:*)",
+      "Bash(node -c:*)",
+      "mcp__context7__resolve-library-id",
+      "WebFetch(domain:platform.minimax.io)",
+      "mcp__context7__get-library-docs",
+      "WebSearch",
+      "WebFetch(domain:api.minimax.chat)",
+      "WebFetch(domain:intl.minimaxi.com)",
+      "WebFetch(domain:www.minimaxi.com)",
+      "WebFetch(domain:www.minimax.io)",
+      "mcp__plugin_testing-suite_playwright-server__browser_navigate",
+      "mcp__plugin_testing-suite_playwright-server__browser_click",
+      "mcp__plugin_testing-suite_playwright-server__browser_evaluate",
+      "mcp__plugin_testing-suite_playwright-server__browser_close",
+      "Bash(powershell -Command:*)",
+      "Bash(rm publicindex.html \"Quick Start - MiniMax API Docs.html\" nul)",
+      "Bash(npm run format:*)",
+      "Bash(npm run lint)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
