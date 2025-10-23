@@ -1,5 +1,5 @@
 // Video Templates functionality
-const API_BASE = location.origin
+// API_BASE is declared in main.js
 
 async function generateFromTemplate(data) {
   const { template_id, media_inputs, text_inputs } = data

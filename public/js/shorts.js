@@ -1,5 +1,5 @@
 // Orchestrator for 1-click "Generate Short" pipeline
-const API_BASE = typeof API_BASE !== 'undefined' ? API_BASE : location.origin
+// API_BASE is declared in main.js
 
 function appendLog(msg) {
   const el = document.getElementById('shortsLog')

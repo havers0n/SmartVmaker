@@ -1,5 +1,5 @@
 // TTS functionality
-const API_BASE = location.origin
+// API_BASE is declared in main.js
 
 async function generateSpeech(data) {
   const { text, model, voice_id, speed, volume, format, mode, sound_effects } = data

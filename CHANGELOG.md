@@ -1,5 +1,67 @@
 # Changelog - MiniMax Video & Image Generator
 
+## Version 2.3 - Frontend Refactoring 🎨
+
+### ✅ Separated Styles and Scripts
+
+**Extracted inline CSS and JavaScript to external files:**
+
+1. **CSS Extraction** (`public/css/styles.css`)
+   - Extracted 538 lines of CSS from `<style>` tag
+   - Created organized stylesheet with proper structure
+   - Improved browser caching and maintainability
+   - Sections: base styles, components, forms, results, tasks, pricing, TTS, dark mode
+
+2. **JavaScript Extraction** (`public/js/app.js`)
+   - Extracted 666 lines of inline JavaScript
+   - Core app logic: tab management, form submission, result display
+   - Polling mechanism for async job status
+   - Image and video result handlers
+
+3. **Global Variable Cleanup**
+   - Fixed duplicate `API_BASE` declarations across 6 files
+   - Single declaration in `main.js` (`const API_BASE = location.origin`)
+   - Removed from: `app.js`, `shorts.js`, `templates.js`, `tts.js`, `voice-clone.js`
+   - No more console errors about redeclarations
+
+4. **HTML Simplification** (`public/index.html`)
+   - Reduced from **2089 to 883 lines** (-57% reduction)
+   - Clean `<head>` with external `<link>` tags
+   - Improved readability and maintainability
+   - Faster page load with better caching
+
+**File Structure:**
+
+```
+public/
+├── css/
+│   └── styles.css        # 538 lines - all styles
+├── js/
+│   ├── app.js           # 666 lines - core logic
+│   ├── main.js          # API_BASE declaration
+│   ├── shorts.js        # Shorts generation
+│   ├── templates.js     # Video templates
+│   ├── tts.js           # Text-to-speech
+│   └── voice-clone.js   # Voice cloning
+└── index.html           # 883 lines - clean HTML
+```
+
+**Benefits:**
+- Better separation of concerns (HTML/CSS/JS)
+- Improved browser caching (CSS/JS cached separately)
+- Easier maintenance and debugging
+- Cleaner git diffs when editing styles or scripts
+- Eliminated variable redeclaration errors
+- 57% smaller HTML file
+
+**Testing:**
+- ✅ Page loads correctly with external resources
+- ✅ All tabs functional
+- ✅ No JavaScript console errors
+- ✅ Styles applied correctly
+
+---
+
 ## Version 2.2 - Backend Refactoring 🏗️
 
 ### ✅ Modular Architecture

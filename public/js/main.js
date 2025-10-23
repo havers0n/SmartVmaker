@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8000'
+const API_BASE = location.origin
 
 // Helper function to convert image file to base64
 function fileToBase64(file) {

@@ -1,5 +1,5 @@
 // Voice Clone functionality
-const API_BASE = location.origin
+// API_BASE is declared in main.js
 
 async function uploadFile(file, purpose) {
   const formData = new FormData()
