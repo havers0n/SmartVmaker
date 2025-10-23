@@ -1,5 +1,68 @@
 # Changelog - MiniMax Video & Image Generator
 
+## Version 2.2 - Backend Refactoring 🏗️
+
+### ✅ Modular Architecture
+
+**Refactored monolithic server into modular structure:**
+
+1. **Configuration Module** (`src/config/index.js`)
+   - Centralized environment variable validation
+   - Typed configuration object exports
+   - Clear error messages for missing required vars
+   - Organized by domain: api, server, database, supabase, cors
+
+2. **Database Module** (`src/db/`)
+   - `client.js` - PostgreSQL pool initialization and job cache
+   - `tasks.js` - Task database operations (upsertTask, getTaskById)
+   - Separation of connection management from business logic
+   - Graceful handling of missing DATABASE_URL
+
+3. **Security Middleware** (`src/middleware/security.js`)
+   - `setupCORS()` - CORS configuration with allowlist
+   - `setupHelmet()` - Security headers setup
+   - `setupCSP()` - Content-Security-Policy setup
+   - `apiLimiter` - API rate limiting (60/min)
+   - `demoLimiter` - Demo rate limiting (10/min)
+   - Clean separation of security concerns
+
+4. **Server Bootstrap** (`src/server.js`)
+   - Reduced from 1172 to ~1100 lines
+   - Clean imports from modular structure
+   - Focused on route definitions and application logic
+   - Uses imported config, db, and security modules
+
+**File Structure Changes:**
+
+```
+src/
+├── config/
+│   └── index.js          # Environment & config
+├── db/
+│   ├── client.js         # PostgreSQL pool
+│   └── tasks.js          # Task operations
+├── lib/
+│   └── logger.js         # Pino logger
+├── middleware/
+│   ├── errorHandler.js   # Error handling
+│   └── security.js       # Security middleware
+└── server.js             # Main server (refactored)
+```
+
+**Benefits:**
+- Better code organization and maintainability
+- Easier testing and debugging
+- Clear separation of concerns
+- Simplified future enhancements
+- Reduced cognitive load when working with code
+
+**Breaking Changes:**
+- None - API and functionality remain unchanged
+- Server entry point moved: `node server.js` → `node src/server.js`
+- package.json updated automatically
+
+---
+
 ## Version 2.1 - Code Quality & Repository Organization 🧹
 
 ### ✅ Repository Organization
